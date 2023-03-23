@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">MyMovieApps</string>
+    <string name="app_name">MovieApps</string>
+    <string name="popular">Popular</string>
+    <string name="most_popular_movies">Most popular movies</string>
+    <string name="movie_app">Movie App</string>
+    <string name="author">Author Apps : Andri Astra P</string>
+    <string name="credits">API Movie Using : https://www.themoviedb.org/</string>
 </resources>
