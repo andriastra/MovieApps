@@ -8,20 +8,21 @@ import com.bumptech.glide.Glide
 import com.example.movieapps.R
 import com.example.movieapps.base.BaseRecyclerAdapter
 import com.example.movieapps.data.model.response.MovieData
+import com.example.movieapps.databinding.ItemDiscoverMovieBinding
 import com.example.movieapps.databinding.ItemMovieBinding
-import com.example.movieapps.util.Constants.Companion.BASE_URL_IMAGE
+import com.example.movieapps.util.Constants
 
-class MovieAdapter : BaseRecyclerAdapter<MovieData>() {
+class MovieByGenreAdapter : BaseRecyclerAdapter<MovieData>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         ViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_movie, parent, false)
+                .inflate(R.layout.item_discover_movie, parent, false)
         )
 
     inner class ViewHolder(itemView: View) : BaseViewHolder<MovieData>(itemView) {
 
-        private val binding = ItemMovieBinding.bind(itemView)
+        private val binding = ItemDiscoverMovieBinding.bind(itemView)
 
         init {
             binding.movieCv.setOnClickListener {
@@ -32,7 +33,7 @@ class MovieAdapter : BaseRecyclerAdapter<MovieData>() {
 
         override fun bind(data: MovieData) {
             with(binding) {
-                Glide.with(itemView.context).load("${BASE_URL_IMAGE}${data.posterPath}").into(imageView)
+                Glide.with(itemView.context).load("${Constants.BASE_URL_IMAGE}${data.posterPath}").into(imageView)
                 movieName.text = data.title
             }
         }

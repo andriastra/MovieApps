@@ -5,7 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val masterList: MutableList<T> = mutableListOf()
+    protected val masterList: MutableList<T> = mutableListOf()
     var onItemClicked:((T) -> Unit)? = null
 
 

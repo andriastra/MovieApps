@@ -23,7 +23,7 @@ abstract class NetworkOnlyResource<ResultType> {
             }
         }
 
-    } as Flow<Resource<ResultType>>
+    }
 
     protected open fun onFetchFailed() {}
 
