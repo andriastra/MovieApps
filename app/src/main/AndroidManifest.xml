@@ -19,6 +19,7 @@
             android:name=".SplashScreenActivity"
             android:screenOrientation="portrait"
             android:exported="true"
+            android:theme="@style/Theme.MyMovieApps.NoActionBar"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +32,7 @@
             android:name=".mvvm.movie.MovieActivity"
             android:screenOrientation="portrait"
             android:exported="true"
+            android:theme="@style/Theme.MyMovieApps.NoActionBar"
             tools:ignore="LockedOrientationActivity">
         </activity>
 
@@ -38,6 +40,7 @@
             android:name=".mvvm.movie.MovieDetailActivity"
             android:screenOrientation="portrait"
             android:exported="true"
+            android:theme="@style/Theme.MyMovieApps.NoActionBar"
             tools:ignore="LockedOrientationActivity">
         </activity>
     </application>

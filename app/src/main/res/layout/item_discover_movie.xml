@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
     <androidx.cardview.widget.CardView
         android:id="@+id/movie_cv"
-        android:layout_width="120dp"
-        android:layout_height="200dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="@dimen/dimen_margin_mendium"
         app:cardCornerRadius="4dp"
         tools:viewBindingIgnore="false">
 
@@ -17,7 +18,8 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:scaleType="centerCrop"
+                android:layout_height="200dp"
                 android:background="@color/primaryBgColorMovie" />
 
             <TextView

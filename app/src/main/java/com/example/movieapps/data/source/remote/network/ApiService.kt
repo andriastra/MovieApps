@@ -1,8 +1,6 @@
 package com.example.movieapps.data.source.remote.network
 
-import com.example.movieapps.data.model.response.MovieResp
-import com.example.movieapps.data.model.response.GenreMovieResp
-import com.example.movieapps.data.model.response.MovieDetailResp
+import com.example.movieapps.data.model.response.*
 import com.example.movieapps.util.Constants.Companion.API_KEY_MOVIE
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -30,4 +28,18 @@ interface ApiService {
         @Path(value = "id", encoded = false) id: Int,
         @Query("api_key") apiKey: String = API_KEY_MOVIE
     ): MovieDetailResp
+
+    @GET("movie/{id}/videos")
+    suspend fun getVideoMovie(
+        @Path(value = "id", encoded = false) id: Int,
+        @Query("api_key") apiKey: String = API_KEY_MOVIE
+    ): VideoResp
+
+
+    @GET("movie/{id}/reviews")
+    suspend fun getMovieReview(
+        @Path(value = "id", encoded = false) id: Int,
+        @Query("api_key") apiKey: String = API_KEY_MOVIE
+    ): MovieReviewResp
+
 }

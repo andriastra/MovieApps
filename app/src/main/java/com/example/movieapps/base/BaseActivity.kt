@@ -31,7 +31,6 @@ abstract class BaseActivity<VDB : ViewDataBinding> : AppCompatActivity() {
             mActivity = this@BaseActivity
             setupToolbar()
             onLoadObserver()
-            onSetupView()
             onViewClicked()
         }
     }
@@ -58,13 +57,6 @@ abstract class BaseActivity<VDB : ViewDataBinding> : AppCompatActivity() {
      * @return void
      */
     abstract fun onLoadObserver()
-
-    /**
-     * method call automatic when activity or fragment created
-     * @param void
-     * @return void
-     */
-    abstract fun onSetupView()
 
     /**
      * method call automatic when activity or fragment created

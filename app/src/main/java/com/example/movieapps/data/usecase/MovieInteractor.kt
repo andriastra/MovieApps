@@ -1,9 +1,7 @@
 package com.example.movieapps.data.usecase
 
 import com.example.movieapps.data.Resource
-import com.example.movieapps.data.model.response.GenreMovieResp
-import com.example.movieapps.data.model.response.MovieDetailResp
-import com.example.movieapps.data.model.response.MovieResp
+import com.example.movieapps.data.model.response.*
 import com.example.movieapps.data.repository.IMovieRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -19,4 +17,10 @@ class MovieInteractor @Inject constructor(private val movieRepository: IMovieRep
 
     override fun getMovieDetail(id: Int): Flow<Resource<MovieDetailResp>> =
         movieRepository.getMovieDetail(id)
+
+    override fun getMovieReview(id: Int): Flow<Resource<MovieReviewResp>> =
+        movieRepository.getMovieReview(id)
+
+    override fun getVideoMovie(id: Int): Flow<Resource<VideoResp>> =
+        movieRepository.getVideoMovie(id)
 }

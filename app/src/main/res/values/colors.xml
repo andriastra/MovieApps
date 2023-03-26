@@ -10,4 +10,19 @@
     <color name="colorPrimary">#f1f2f6</color>
     <color name="colorPrimaryDark">#2f3542</color>
     <color name="colorAccent">#ff4757</color>
+    <color name="background">#303030</color>
+
+
+    <color name="primaryColor">#91959E</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#cecece</color>
+    <color name="secondaryColor">#464646</color>
+    <color name="primaryBgColor">#2C284D</color>
+    <color name="primaryBgColorMovie">#6962A7</color>
+
+    <color name="textColorChipsUncheck">#787878</color>
+    <color name="unselectedChipBackground">#F4F5F7</color>
+    <color name="unselectedChipTextColor">#90959E</color>
+
+
 </resources>

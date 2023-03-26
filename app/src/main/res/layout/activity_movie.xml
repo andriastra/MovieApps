@@ -2,37 +2,87 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/popular"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:background="@color/primaryBgColor"
+            android:orientation="vertical">
+            <TextView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/popular_movies"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/dimen_margin_mendium"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/dimen_margin_mendium"
+                android:layout_marginBottom="8dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:id="@+id/rvMovie"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:paddingStart="@dimen/dimen_margin_mendium"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                tools:listitem="@layout/item_movie"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/genre_movie"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/dimen_margin_mendium"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="@dimen/dimen_margin_mendium"
+                android:layout_marginBottom="8dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/most_popular_movies" />
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/popular_movies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:clipToPadding="false"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp" />
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cg_genre"
+                app:singleSelection="true"
+                android:scrollbars="none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dimen_margin_small"
+                android:layout_marginHorizontal="@dimen/dimen_margin_mendium">
+            </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+            <ProgressBar
+                android:id="@+id/defaultProgress"
+                style="@style/Base.Widget.AppCompat.ProgressBar"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content" />
 
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/rvDiscoverMovie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dimen_margin_mendium"
+                android:layout_marginHorizontal="@dimen/dimen_margin_mendium"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_movie"/>
+
+            <ProgressBar
+                android:id="@+id/loadMoreProgress"
+                style="@style/Base.Widget.AppCompat.ProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="true"
+                android:visibility="gone" />
+        </LinearLayout>
+
 </layout>

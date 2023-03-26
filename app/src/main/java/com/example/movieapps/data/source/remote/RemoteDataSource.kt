@@ -1,8 +1,6 @@
 package com.example.movieapps.data.source.remote
 
-import com.example.movieapps.data.model.response.MovieResp
-import com.example.movieapps.data.model.response.GenreMovieResp
-import com.example.movieapps.data.model.response.MovieDetailResp
+import com.example.movieapps.data.model.response.*
 import com.example.movieapps.data.source.remote.network.ApiResponse
 import com.example.movieapps.data.source.remote.network.ApiService
 import kotlinx.coroutines.Dispatchers
@@ -65,6 +63,48 @@ class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
             try {
                 val response =
                     apiService.getMovieDetail(id = id)
+                emit(ApiResponse.Success(response))
+            } catch (e: UnknownHostException) {
+                emit(ApiResponse.Error("Connection Error"))
+                Timber.e(e.toString())
+            } catch (e: HttpException) {
+                emit(ApiResponse.Error("Error connecting to database"))
+                Timber.e(e.toString())
+            } catch (e: Exception) {
+                emit(ApiResponse.Error("An Error Occurred"))
+                Timber.e(e.stackTraceToString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getVideoMovie(
+        id: Int
+    ): Flow<ApiResponse<VideoResp>> {
+        return flow {
+            try {
+                val response =
+                    apiService.getVideoMovie(id = id)
+                emit(ApiResponse.Success(response))
+            } catch (e: UnknownHostException) {
+                emit(ApiResponse.Error("Connection Error"))
+                Timber.e(e.toString())
+            } catch (e: HttpException) {
+                emit(ApiResponse.Error("Error connecting to database"))
+                Timber.e(e.toString())
+            } catch (e: Exception) {
+                emit(ApiResponse.Error("An Error Occurred"))
+                Timber.e(e.stackTraceToString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    suspend fun getMovieReview(
+        id: Int
+    ): Flow<ApiResponse<MovieReviewResp>> {
+        return flow {
+            try {
+                val response =
+                    apiService.getMovieReview(id = id)
                 emit(ApiResponse.Success(response))
             } catch (e: UnknownHostException) {
                 emit(ApiResponse.Error("Connection Error"))
